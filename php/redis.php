@@ -1,12 +1,9 @@
 <?php
-// Heroku Redis provides the URL as an environment variable
 $redisUrl = parse_url(getenv("REDIS_URL"));
 
 $redis = new Redis();
 try {
     $redis->connect($redisUrl["host"], $redisUrl["port"]);
-
-    // Heroku Redis requires password authentication
     if (isset($redisUrl["pass"])) {
         $redis->auth($redisUrl["pass"]);
     }

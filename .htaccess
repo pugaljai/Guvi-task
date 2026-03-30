@@ -1,0 +1,4 @@
+DirectoryIndex index.html
+
+RewriteEngine On
+RewriteRule ^php/(.*)$ php/$1 [L]

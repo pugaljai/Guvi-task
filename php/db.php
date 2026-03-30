@@ -1,6 +1,4 @@
 <?php
-// Heroku JawsDB provides the MySQL URL as an environment variable
-// We parse it to get host, dbname, user, password
 $url = parse_url(getenv("JAWSDB_URL"));
 
 $host   = $url["host"];
