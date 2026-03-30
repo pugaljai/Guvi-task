@@ -135,14 +135,14 @@ $(document).ready(function () {
         if (response.status === "success") {
           // Show success message
           showAlert("Registration successful! Redirecting to login...", "success");
-
-          // Mark fields as valid (green border)
           $(".custom-input").removeClass("is-invalid").addClass("is-valid");
 
-          // Redirect to login page after 2 seconds
           setTimeout(function () {
-            window.location.href = "login.html";
-          }, 2000);
+          // Clear any old session so login.js doesn't auto-redirect to profile
+         localStorage.removeItem("session_token");
+         localStorage.removeItem("username");
+         window.location.href = "login.html";
+        }, 2000);
 
         } else {
           // PHP returned an error (e.g. duplicate email/username)
@@ -165,5 +165,11 @@ $(document).ready(function () {
   $(".custom-input").on("input", function () {
     $(this).removeClass("is-invalid");
   });
+  $("#loginHereBtn").on("click", function (e) {
+  e.preventDefault(); // stop the link from navigating immediately
+  localStorage.removeItem("session_token");
+  localStorage.removeItem("username");
+  window.location.href = "login.html"; // now go to login cleanly
+});
 
 }); // END document.ready

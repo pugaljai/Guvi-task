@@ -14,10 +14,31 @@ $(document).ready(function () {
   // ─── 0. Auto-redirect if already logged in ────────────────────────────────
   // If a token already exists in localStorage, no need to login again
   const existingToken = localStorage.getItem("session_token");
-  if (existingToken) {
-    window.location.href = "profile.html";
-    return; // Stop rest of the script from running
-  }
+if (existingToken) {
+  // Verify the token is still alive in Redis before redirecting
+  $.ajax({
+    url: "php/get_profile.php",
+    type: "POST",
+    dataType: "json",
+    data: { session_token: existingToken },
+    success: function (response) {
+      if (response.status === "success" || response.status === "no_profile") {
+        // Token is valid in Redis → already logged in → go to profile
+        window.location.href = "profile.html";
+      } else {
+        // Token is expired or invalid → clear it and stay on login page
+        localStorage.removeItem("session_token");
+        localStorage.removeItem("username");
+      }
+    },
+    error: function () {
+      // Network error → clear token and stay on login page
+      localStorage.removeItem("session_token");
+      localStorage.removeItem("username");
+    }
+  });
+  return;
+}
 
   // ─── 0b. Pre-fill email if "Remember Me" was used last time ──────────────
   const savedEmail = localStorage.getItem("remembered_email");
