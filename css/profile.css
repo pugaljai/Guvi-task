@@ -1,0 +1,377 @@
+/*
+ * profile.css
+ * Profile page specific styles — extends style.css
+ */
+
+/* ─── Page background ────────────────────────────────────────────────────── */
+.profile-page {
+  min-height: calc(100vh - 64px); /* full height minus navbar */
+  background-color: var(--surface-alt);
+  padding: 36px 0 60px;
+}
+
+/* ─── Top Navbar ─────────────────────────────────────────────────────────── */
+.portal-nav {
+  height: 64px;
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 16px rgba(26,26,46,0.18);
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo-sm {
+  width: 34px;
+  height: 34px;
+  background-color: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 13px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+/* Right side of nav */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  background-color: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-username {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Logout button */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 6px 14px;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ─── Profile Sidebar ────────────────────────────────────────────────────── */
+.profile-sidebar {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px 24px;
+  text-align: center;
+  position: sticky;
+  top: 84px;   /* below navbar */
+}
+
+/* Large avatar circle */
+.avatar-circle {
+  width: 88px;
+  height: 88px;
+  background: linear-gradient(135deg, var(--accent), #f97316);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 8px 24px rgba(233,69,96,0.3);
+  transition: all 0.3s ease;
+}
+
+.sidebar-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.sidebar-username {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* Quick info chips */
+.info-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.chip {
+  background-color: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.chip-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* Completeness bar */
+.completeness-wrap {
+  margin-top: 4px;
+}
+
+.completeness-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.completeness-bar {
+  height: 6px;
+  border-radius: 99px;
+  background-color: var(--border);
+  overflow: hidden;
+}
+
+.completeness-bar .progress-bar {
+  transition: width 0.5s ease, background-color 0.3s ease;
+  border-radius: 99px;
+}
+
+/* ─── Profile Form Card ──────────────────────────────────────────────────── */
+.profile-form-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px 40px;
+  position: relative;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.profile-card-header {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid var(--border);
+}
+
+.profile-card-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.profile-card-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* ─── Read-only input ────────────────────────────────────────────────────── */
+.readonly-input {
+  background-color: #f1f3f5 !important;
+  cursor: not-allowed;
+  color: var(--text-muted) !important;
+}
+
+.readonly-badge {
+  font-size: 0.65rem;
+  background-color: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* ─── Textarea styling ───────────────────────────────────────────────────── */
+textarea.custom-input {
+  height: auto;
+  resize: vertical;
+  padding: 12px 16px;
+}
+
+/* ─── Select styling ─────────────────────────────────────────────────────── */
+select.custom-input {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+  appearance: none;
+}
+
+/* ─── Form actions row ───────────────────────────────────────────────────── */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Save button — matches register/login submit-btn */
+.form-actions .submit-btn {
+  flex: 1;
+  min-width: 160px;
+  height: 48px;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.form-actions .submit-btn:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.form-actions .submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Reset button */
+.reset-btn {
+  height: 48px;
+  padding: 0 24px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background: transparent;
+  transition: all 0.2s;
+}
+
+.reset-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ─── Loading overlay ────────────────────────────────────────────────────── */
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.88);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+}
+
+.loading-overlay p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .profile-sidebar {
+    position: static;
+  }
+
+  .profile-form-card {
+    padding: 28px 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .submit-btn,
+  .reset-btn {
+    width: 100%;
+  }
+
+  .nav-username {
+    display: none;
+  }
+}
