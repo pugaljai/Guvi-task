@@ -118,7 +118,7 @@ $(document).ready(function () {
     // Step 3: Send data to backend using jQuery AJAX
     // Strictly NO form submission — $.ajax() only
     $.ajax({
-      url: "http://intern-backend-env.eba-7u2uppr8.ap-southeast-2.elasticbeanstalk.com/php/register.php",
+      url: "https://d29xajtybawg3y.cloudfront.net/php/register.php",
       type: "POST",                   // HTTP method
       dataType: "json",               // Expect JSON back from PHP
       data: {

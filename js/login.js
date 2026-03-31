@@ -17,7 +17,7 @@ $(document).ready(function () {
 if (existingToken) {
   // Verify the token is still alive in Redis before redirecting
   $.ajax({
-    url: "http://intern-backend-env.eba-7u2uppr8.ap-southeast-2.elasticbeanstalk.com/php/get_profile.php",
+    url: "https://d29xajtybawg3y.cloudfront.net/php/get_profile.php",
     type: "POST",
     dataType: "json",
     data: { session_token: existingToken },
@@ -159,7 +159,7 @@ if (existingToken) {
     // Step 3: Send credentials to backend via jQuery AJAX
     // Strictly NO <form> submission — only $.ajax()
     $.ajax({
-     url: "http://intern-backend-env.eba-7u2uppr8.ap-southeast-2.elasticbeanstalk.com/php/login.php",
+     url: "https://d29xajtybawg3y.cloudfront.net/php/login.php",
       type: "POST",             // HTTP method
       dataType: "json",         // Expect JSON response
       data: {
