@@ -156,7 +156,7 @@ $(document).ready(function () {
     hideAlert();
 
     $.ajax({
-      url: "php/get_profile.php",
+      url: "http://intern-backend-env.eba-7u2uppr8.ap-southeast-2.elasticbeanstalk.com/php/get_profile.php",
       type: "POST",                // POST so token isn't in URL
       dataType: "json",
       data: {
@@ -238,7 +238,7 @@ $(document).ready(function () {
 
     // Send to backend via jQuery AJAX — NO form submission
     $.ajax({
-      url: "php/update_profile.php",
+      url: "http://intern-backend-env.eba-7u2uppr8.ap-southeast-2.elasticbeanstalk.com/php/update_profile.php",
       type: "POST",
       dataType: "json",
       data: profileData,
@@ -288,7 +288,7 @@ $(document).ready(function () {
 
     // Call logout.php to delete token from Redis
     $.ajax({
-      url: "php/logout.php",
+      url: "http://intern-backend-env.eba-7u2uppr8.ap-southeast-2.elasticbeanstalk.com/php/logout.php",
       type: "POST",
       dataType: "json",
       data: {

@@ -13,9 +13,10 @@
 // ─── 1. Tell the browser this response is JSON ────────────────────────────────
 header("Content-Type: application/json");
 
-// ─── 2. Allow cross-origin if needed (useful during local dev) ───────────────
 header("Access-Control-Allow-Origin: *");
-
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") { exit; }
 // ─── 3. Include MySQL connection ──────────────────────────────────────────────
 require_once "db.php";
 // $pdo is now available from db.php

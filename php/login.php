@@ -21,6 +21,9 @@
 // ─── 1. Set response headers ──────────────────────────────────────────────────
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") { exit; }
 
 // ─── 2. Include connection files ──────────────────────────────────────────────
 require_once "db.php";      // $pdo  — MySQL PDO connection
