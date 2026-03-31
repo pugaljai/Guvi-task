@@ -1,10 +1,8 @@
 <?php
-$url = parse_url(getenv("JAWSDB_URL"));
-
-$host   = $url["host"];
-$dbname = ltrim($url["path"], "/");
-$dbuser = $url["user"];
-$dbpass = $url["pass"];
+$host   = "intern-db.cj4w2iuwwwgv.ap-southeast-2.rds.amazonaws.com";
+$dbname = "intern_project";
+$dbuser = "admin";
+$dbpass = "InternPass123";
 
 try {
     $pdo = new PDO(

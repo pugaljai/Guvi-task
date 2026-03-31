@@ -2,7 +2,7 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 try {
-    $mongoUri = getenv("MONGODB_URI");
+    $mongoUri = "mongodb+srv://internuser:InternPass123@cluster0.xriff6m.mongodb.net/intern_profiles?authSource=admin";
     $mongoClient = new MongoDB\Client($mongoUri);
     $mongoDB = $mongoClient->intern_profiles;
     $profilesCollection = $mongoDB->profiles;
