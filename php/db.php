@@ -1,4 +1,6 @@
 <?php
+
+
 $host   = "intern-db.cj4w2iuwwwgv.ap-southeast-2.rds.amazonaws.com";
 $dbname = "intern_project";
 $dbuser = "admin";
@@ -14,7 +16,10 @@ try {
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     header("Content-Type: application/json");
-    echo json_encode(["status" => "error", "message" => "Database connection failed."]);
+    echo json_encode([
+        "status"  => "error",
+        "message" => "Database connection failed."
+    ]);
     exit;
 }
 ?>
